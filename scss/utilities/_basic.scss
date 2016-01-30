@@ -1,0 +1,23 @@
+// Media Query variables
+//example usage -- @include breakpoint($tabletWidth) {css goes here};
+$mobileWidth: 400px;
+$tabletWidth: 768px;
+$tabletLandscapeWidth: 960px;
+$desktopWidth: 1024px;
+$desktopWideWidth: 1500px;
+
+
+$baseFontSize: 10px;
+
+
+html {
+  font-size: $baseFontSize;  //Sets up the Base 10 stuff
+}
+
+body {
+  font-size: $baseFontSize + 6; //sets standard body font at 16px;
+}
+
+main {
+  display: block; //html5 shiv.
+}

@@ -1,0 +1,221 @@
+// Standard Clearfix.
+// Input: .container-with-floated-children {
+//          @extend %clearfix;
+//         }
+
+%clearfix {
+  zoom: 1;
+
+  &::before, &::after {
+    content: " ";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+
+}
+
+//Icon Mixins
+
+//Adjust @font-face declaration to suit the font-face used for this site's icons.
+@mixin icon {
+  @font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?289ra0');
+    src: url('fonts/icomoon.eot?289ra0#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?289ra0') format('truetype'),
+        url('fonts/icomoon.woff?289ra0') format('woff'),
+        url('fonts/icomoon.svg?289ra0#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    // use !important to prevent issues with browser extensions that change fonts
+    //font-family: 'icomoon' !important;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    // Better Font Rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+}
+
+// Button Mixins.
+// Input: .call-to-action-red {
+//          @include button(#454545);
+//          color: $white;
+//        }
+//        .call-to-action {
+//          @include button($white);
+//          color: black;
+//        }
+// Return: .call-to-action-red {
+//            background-color: #454545;
+//            color: #FFFFFF;
+//          }
+//          .call-to-action {
+//            background-color: #FFFFFF;
+//            color: #000000;
+//          }
+//          .call-to-action, .call-to-action-red {
+//            padding: 1em;
+//            margin: 1em;
+//           }
+//
+
+$placeholderSelector: ();
+
+@mixin button($bgcolor, $extend: true) {
+  @include moduleStatic($extend);
+
+  background-color: $bgcolor;
+}
+
+@mixin moduleStatic ($extend: true) {
+  $moduleSelector: mapGet($placeholderSelector, 'module');
+
+  @if $extend == true {
+    @if $moduleSelector == null {
+      $moduleSelector: uniqueId();
+      $placeholderSelector: mapMerge($placeholderSelector, ('module': $moduleSelector)) !global;
+
+      @at-root %#{$moduleSelector} {
+        @include moduleStatic(false);
+      }
+    }
+  @extend %#{$moduleSelector};
+  } @else {
+    padding: 1em;
+    margin: 1em;
+  }
+}
+
+// Rem Fallback Mixin for older browsers/compatibility
+
+// Input: body {
+//          @include rem-fallback(margin, 10, 20, 30, 40);
+//        }
+// Return: body {
+//          margin: 100px 200px 300px 400px;
+//          margin: 10rem 20rem 30rem 40rem;
+//         }
+
+@function stripUnit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin remFallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: stripUnit(nth($values, $i));
+    $pxValues: #{$pxValues + $value * $baseFontSize};
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: stripUnit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+// Visually Hidden Hack
+// Input: .visually-hidden {
+//          @extend %visuallyhidden;
+//        }
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  //clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// Layout mixins
+
+// Media Query mixins
+
+$mobileWidth: 450px;
+$tabletWidth: 768px;
+$desktopWidth: 1024px;
+
+
+/*
+@mixin mobile {
+  @media (max-width: #{$mobileWidth}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tabletWidth}) and (max-width: #{$desktopWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin tabletplus {
+  @media (min-width: #{$tabletWidth}) {
+    @content;
+  }
+}
+
+@mixin tabletminus {
+  @media (max-width: #{$desktopWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktopWidth}) {
+    @content;
+  }
+}
+*/
+
+// Retina Mixin
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+// Print media query Mixin
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}

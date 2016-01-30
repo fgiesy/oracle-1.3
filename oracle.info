@@ -1,0 +1,39 @@
+; The name, description and screenshot used for this theme on the Appearance
+; page at admin/appearance.
+
+screenshot  = img/base/oracle.jpg
+name        = Oracle
+description = It sees all.
+
+
+
+; Removing/Adding Stylesheets/JS:
+
+; Removing any superfluous stylesheets here!
+
+; Our Base stylesheet!
+
+stylesheets[all][] = css/oracle.css
+
+; Our Base JS file!
+
+scripts[] = js/oracle.js
+
+
+
+; Regions go here!
+
+; You'll use this variable in page.tpl.php:
+;   <?php print render($page['variable_machine_name']); ?>
+; And you'll use this variable in maintenance-page.tpl.php:
+;   <?php print $variable_machine_name; ?>
+
+regions[header]         = Header
+regions[navigation]     = Navigation bar
+regions[highlighted]    = Highlighted
+regions[help]           = Help
+regions[content]        = Content
+regions[sidebar_first]  = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer]         = Footer
+regions[bottom]         = Page bottom
