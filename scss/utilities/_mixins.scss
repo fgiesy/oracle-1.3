@@ -93,7 +93,7 @@ $placeholderSelector: ();
         @include moduleStatic(false);
       }
     }
-  @extend %#{$moduleSelector};
+    @extend %#{$moduleSelector};
   } @else {
     padding: 1em;
     margin: 1em;
