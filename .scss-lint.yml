@@ -10,71 +10,70 @@ plugin_gems: []
 # Default severity of all linters.
 severity: warning
 
-  linters:
+linters:
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: false
+    character: space # or 'tab'
+    width: 2
   
-    Indentation:
-      enabled: true
-      allow_non_nested_indentation: false
-      character: space # or 'tab'
-      width: 2
-    
-    NameFormat:
-      enabled: true
-      allow_leading_underscore: true
-      convention: camel_case # or 'hyphenated_lowercase', or 'snake_case', or a regex pattern
+  NameFormat:
+    enabled: true
+    allow_leading_underscore: true
+    convention: camel_case # or 'hyphenated_lowercase', or 'snake_case', or a regex pattern
 
-    NestingDepth:
-      enabled: true
-      max_depth: 3
-      ignore_parent_selectors: false
+  NestingDepth:
+    enabled: true
+    max_depth: 3
+    ignore_parent_selectors: false
 
-    PropertySortOrder: 
-      enabled: false
-      ignore_unspecified: false
-      min_properties: 2
-      separate_groups: false
+  PropertySortOrder: 
+    enabled: false
+    ignore_unspecified: false
+    min_properties: 2
+    separate_groups: false
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 3
   
-    SelectorDepth:
-      enabled: true
-      max_depth: 3
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_BEM # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+  
+  SingleLinePerSelector:
+    enabled: false #True if we want to do this/can figure out how to exclude _reset.scss
+  
+  SpaceAfterComma:
+    enabled: true
+    style: one_space # or 'no_space', or 'at_least_one_space'
+
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: one_space # or 'no_space', or 'at_least_one_space', or 'aligned'
+
+  SpaceAfterPropertyName:
+    enabled: true
+
+  SpaceAfterVariableName:
+    enabled: true
+
+  SpaceAroundOperator:
+    enabled: true
+    style: one_space # or 'at_least_one_space', or 'no_space'
+
+  SpaceBeforeBrace:
+    enabled: true
+    style: space # or 'new_line'
+    allow_single_line_padding: false
+
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
     
-    SelectorFormat:
-      enabled: true
-      convention: hyphenated_BEM # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+  StringQuotes:
+    enabled: false
+    style: double_quotes # or single_quotes
     
-    SingleLinePerSelector:
-      enabled: false #True if we want to do this/can figure out how to exclude _reset.scss
-    
-    SpaceAfterComma:
-      enabled: true
-      style: one_space # or 'no_space', or 'at_least_one_space'
-
-    SpaceAfterPropertyColon:
-      enabled: true
-      style: one_space # or 'no_space', or 'at_least_one_space', or 'aligned'
-
-    SpaceAfterPropertyName:
-      enabled: true
-
-    SpaceAfterVariableName:
-      enabled: true
-
-    SpaceAroundOperator:
-      enabled: true
-      style: one_space # or 'at_least_one_space', or 'no_space'
-
-    SpaceBeforeBrace:
-      enabled: true
-      style: space # or 'new_line'
-      allow_single_line_padding: false
-
-    SpaceBetweenParens:
-      enabled: true
-      spaces: 0
-      
-    StringQuotes:
-      enabled: false
-      style: double_quotes # or single_quotes
-      
-    TrailingWhitespace:
-      enabled: true
+  TrailingWhitespace:
+    enabled: true
