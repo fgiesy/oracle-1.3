@@ -1,0 +1,161 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 16px;
+}
+
+main {
+  display: block;
+}
+
+.lorem__wrapper {
+  zoom: 1;
+}
+.lorem__wrapper::before, .lorem__wrapper::after {
+  content: " ";
+  display: table;
+}
+.lorem__wrapper::after {
+  clear: both;
+}
+
+/*
+@mixin mobile {
+  @media (max-width: 450px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin tabletplus {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tabletminus {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+*/
+.lorem__wrapper {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%3E%3Crect%20x%3D%220%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2210%2E25641%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2212%2E82051%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2223%2E07692%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2225%2E64103%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2235%2E89744%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2238%2E46154%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2248%2E71795%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2251%2E28205%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2261%2E53846%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2264%2E10256%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2274%2E35897%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2276%2E92308%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2287%2E17949%25%22%20fill%3D%22%234040ff%22%20width%3D%222%2E5641%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2289%2E74359%25%22%20fill%3D%22blue%22%20width%3D%2210%2E25641%25%22%20height%3D%22100%25%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (min-width: 768px) {
+  .lorem__wrapper {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%3E%3Crect%20x%3D%220%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%225%2E06329%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%226%2E32911%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2211%2E39241%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2212%2E65823%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2217%2E72152%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2218%2E98734%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2224%2E05063%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2225%2E31646%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2230%2E37975%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2231%2E64557%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2236%2E70886%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2237%2E97468%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2243%2E03797%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2244%2E3038%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2249%2E36709%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2250%2E63291%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2255%2E6962%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2256%2E96203%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2262%2E02532%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2263%2E29114%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2268%2E35443%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2269%2E62025%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2274%2E68354%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2275%2E94937%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2281%2E01266%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2282%2E27848%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2287%2E34177%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2288%2E60759%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2293%2E67089%25%22%20fill%3D%22%234040ff%22%20width%3D%221%2E26582%25%22%20height%3D%22100%25%22%2F%3E%3Crect%20x%3D%2294%2E93671%25%22%20fill%3D%22blue%22%20width%3D%225%2E06329%25%22%20height%3D%22100%25%22%2F%3E%3C%2Fsvg%3E");
+  }
+}
+
+.lorem-left {
+  -sgs-span-settings: ("span": 4, "location": 1, "grid": 8, "gutter": 0.25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));
+  width: 48.71795%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0;
+  clear: none;
+  color: white;
+}
+@media (min-width: 768px) {
+  .lorem-left {
+    -sgs-span-settings: ("span": 8, "location": 1, "grid": 16, "gutter": 0.25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));
+    width: 49.36709%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none;
+  }
+}
+
+.lorem-right {
+  -sgs-span-settings: ("span": 4, "location": 5, "grid": 8, "gutter": 0.25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));
+  width: 48.71795%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  color: white;
+  font-size: 8px;
+  font-size: 0.8rem;
+  /*@include breakpoint($tabletWidth) {
+    @include layout(16) {
+      @include grid-span(5, 9)
+    }
+  }*/
+}
+@media (min-width: 768px) {
+  .lorem-right {
+    -sgs-span-settings: ("span": 5, "location": 9, "grid": 16, "gutter": 0.25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));
+    width: 30.37975%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 50.63291%;
+    clear: none;
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
+}
