@@ -1,1 +1,9 @@
-/node_modules
+### Gulp ###
+node_modules
+
+### Sass ###
+.sass-cache/
+
+### PhpStorm ###
+*.iml
+.idea/
