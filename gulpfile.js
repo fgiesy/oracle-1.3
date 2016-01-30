@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     cssnano = require('gulp-cssnano'),
+    postcss = require('gulp-postcss'),
     autoprefixer = require('gulp-autoprefixer'),
     jshint = require('gulp-jshint'),
     jshintStylish = require('jshint-stylish'),
@@ -44,16 +45,11 @@ gulp.task('compass', function() {
       css: 'css',
       sass: 'scss'
     }))
-    .pipe(autoprefixer({
-       browsers: ['last 3 versions'],
-       cascade: false
-    }))
     .pipe(concat('oracle.css'))
     .pipe(cssnano())
     .pipe(rename('oracle.min.css'))
     .pipe(gulp.dest('./css/'));
 });
-
 
 gulp.task('scss-lint', function() {
   return gulp.src('scss/**/*.scss')
