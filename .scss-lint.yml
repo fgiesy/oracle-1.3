@@ -1,6 +1,10 @@
 # Default application configuration that all configurations inherit from.
+# Spacing is VERY important here -- any additional leading spaces will cause the scss-lint task to error out.
 
 scss_files: "**/*.scss"
+
+exclude: "**/_mixins.scss"
+
 plugin_directories: ['.scss-linters']
 
 # List of gem names to load custom linters from (make sure they are already
@@ -11,12 +15,15 @@ plugin_gems: []
 severity: warning
 
 linters:
+  IdSelector:
+    enabled: false # change to True to be "proper" -- fights with jQuery and things.
+
   Indentation:
     enabled: true
     allow_non_nested_indentation: false
     character: space # or 'tab'
     width: 2
-  
+
   NameFormat:
     enabled: true
     allow_leading_underscore: true
@@ -24,10 +31,10 @@ linters:
 
   NestingDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 4
     ignore_parent_selectors: false
 
-  PropertySortOrder: 
+  PropertySortOrder:
     enabled: false
     ignore_unspecified: false
     min_properties: 2
@@ -35,15 +42,15 @@ linters:
 
   SelectorDepth:
     enabled: true
-    max_depth: 3
-  
+    max_depth: 4
+
   SelectorFormat:
-    enabled: true
+    enabled: false
     convention: hyphenated_BEM # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
-  
+
   SingleLinePerSelector:
     enabled: false #True if we want to do this/can figure out how to exclude _reset.scss
-  
+
   SpaceAfterComma:
     enabled: true
     style: one_space # or 'no_space', or 'at_least_one_space'
@@ -70,10 +77,10 @@ linters:
   SpaceBetweenParens:
     enabled: true
     spaces: 0
-    
+
   StringQuotes:
     enabled: false
     style: double_quotes # or single_quotes
-    
+
   TrailingWhitespace:
     enabled: true

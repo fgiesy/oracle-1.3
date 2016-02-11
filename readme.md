@@ -2,16 +2,17 @@
 
 ## Sees all. Knows all. Is slightly bossy.
 
-A base, base, base, theme. The purpose of this is to have Gulp, npm, brackets.json and the folder structure set up with the most minimal effort possible.
+A base, base, base, theme. The purpose of this is to have Singularity, Gulp, npm, gemfile config and the folder structure set up with the most minimal effort possible.
 
 This is assuming that each and every site we build has a custom look and feel past the basic regions and structure provided by Drupal/WP/Static HTML.
 
 Process:
+
 1. Create new site (compass create yoursitehere), etc.
 2. Empty theme folder, upload Oracle.
 3. gem install (to install dependencies)
 4. npm install (to install dependencies)
-5. Navigate to theme folder, change file names from oracle -> project (oracle.scss/css/.min, oracle.js/.min, Gulpfile paths)
+5. Navigate to theme folder, change file names from oracle -> project (oracle.scss/css/.min, oracle.js/.min, gulpfile paths)
 6. ??????
 7. Theme.
 
