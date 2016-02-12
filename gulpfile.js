@@ -19,8 +19,7 @@ var gulp = require('gulp'),
 
 //Runs our default gulp tasks (watches, lints and minifies the JS, SCSS and CSS).
 gulp.task('default', function() {
-  gulp.watch('js/**/*.js', ['jshint']);
-  gulp.watch('js/**/*.js', ['build-js']);
+  gulp.watch('js/scripts/*.js', ['build-js']);
   gulp.watch('scss/**/*.scss', ['compass']);
   gulp.watch('css/oracle.css', ['nano']);
 });
@@ -61,20 +60,18 @@ gulp.task('scss-lint', function() {
     .pipe( scssLint({ customReport: scssLintStylish }) );
 });
 
-// Lint and hint the JS.
-gulp.task('jshint', function() {
-  return gulp.src('js/**/*.js')
-    .pipe(plumber())
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-});
-
 // Concatenate and uglify the JS.
 gulp.task('build-js', function(){
-  return gulp.src('js/**/*.js')
+  return gulp.src('js/scripts/*.js')
+    //Error handling to not stop the task on Error.
     .pipe(plumber())
+    //Lints and reports issues using stylish.
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    //Concatenates all scripts into main js.
     .pipe(concat('oracle.js'))
     .pipe(gulp.dest('js'))
+    //Minifies main js file and uglifies it.
     .pipe(rename('oracle.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('js'));
