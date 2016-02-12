@@ -3,7 +3,10 @@
 
 scss_files: "**/*.scss"
 
-exclude: "**/_mixins.scss"
+#Excludes the Basic Reset SCSS and the Mixin file (as it may contain pre-written mixins too complex to worry about)
+exclude:
+  - "**/_mixins.scss"
+  - "**/_reset.scss"
 
 plugin_directories: ['.scss-linters']
 
@@ -15,6 +18,25 @@ plugin_gems: []
 severity: warning
 
 linters:
+  BorderZero:
+    enabled: true
+    convention: none # or `zero`
+
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: false
+
+  EmptyRule:
+    enabled: true
+
+  HexLength:
+    enabled: true
+    style: long # or 'short'
+
+  HexNotation:
+    enabled: true
+    style: uppercase # or 'lowercase'
+
   IdSelector:
     enabled: false # change to True to be "proper" -- fights with jQuery and things.
 
@@ -23,6 +45,10 @@ linters:
     allow_non_nested_indentation: false
     character: space # or 'tab'
     width: 2
+
+  LeadingZero:
+    enabled: true
+    style: exclude_zero # or 'include_zero'
 
   NameFormat:
     enabled: true
@@ -39,6 +65,12 @@ linters:
     ignore_unspecified: false
     min_properties: 2
     separate_groups: false
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: true
+    allow_element_with_id: true
 
   SelectorDepth:
     enabled: true
@@ -83,4 +115,7 @@ linters:
     style: double_quotes # or single_quotes
 
   TrailingWhitespace:
+    enabled: true
+
+  ZeroUnit:
     enabled: true

@@ -1,20 +1,20 @@
 'use strict';
 
 var gulp = require('gulp'),
-      sass = require('gulp-sass'),
-      scssLint = require('gulp-scss-lint'),
-      concat = require('gulp-concat'),
-      rename = require('gulp-rename'),
-      uglify = require('gulp-uglify'),
-      cssnano = require('gulp-cssnano'),
-      postcss = require('gulp-postcss'),
-      autoprefixer = require('gulp-autoprefixer'),
-      jshint = require('gulp-jshint'),
-      jshintStylish = require('jshint-stylish'),
-      scssLintStylish = require('gulp-scss-lint-stylish'),
-      plumber = require('gulp-plumber'),
-      notify = require('gulp-notify'),
-      compass = require('gulp-compass');
+    sass = require('gulp-sass'),
+    scssLint = require('gulp-scss-lint'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
+    uglify = require('gulp-uglify'),
+    cssnano = require('gulp-cssnano'),
+    postcss = require('gulp-postcss'),
+    autoprefixer = require('gulp-autoprefixer'),
+    jshint = require('gulp-jshint'),
+    jshintStylish = require('jshint-stylish'),
+    scssLintStylish = require('gulp-scss-lint-stylish'),
+    plumber = require('gulp-plumber'),
+    notify = require('gulp-notify'),
+    compass = require('gulp-compass');
 
 
 //Runs our default gulp tasks (watches, lints and minifies the JS, SCSS and CSS).
@@ -27,7 +27,7 @@ gulp.task('default', function() {
 
 gulp.task('compass', function() {
   gulp.src('scss/**/*.scss')
-    //Error handling to throw Notification on error
+    //Error handling to throw Notification on error.
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     //Use compass to compile the CSS.
     .pipe(compass({
@@ -39,10 +39,10 @@ gulp.task('compass', function() {
     .pipe(concat('oracle.css'))
 });
 
-//Autoprefixes, nanofies, 
+//Autoprefixes, nanofies.
 gulp.task('nano', function () {
   return gulp.src('css/oracle.css')
-  //Autoprefix using "CanIuse"
+  //Autoprefix using "CanIuse?".
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
@@ -55,7 +55,7 @@ gulp.task('nano', function () {
     .pipe(gulp.dest('./css/'));
 });
 
-// Lint the SCSS using rules in .scss-lint.yml 
+// Lint the SCSS using rules in .scss-lint.yml.
 gulp.task('scss-lint', function() {
   return gulp.src('scss/**/*.scss')
     .pipe( scssLint({ customReport: scssLintStylish }) );
