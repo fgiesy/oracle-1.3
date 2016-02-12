@@ -22,12 +22,14 @@ gulp.task('default', function() {
   gulp.watch('js/**/*.js', ['jshint']);
   gulp.watch('js/**/*.js', ['build-js']);
   gulp.watch('scss/**/*.scss', ['compass']);
+  gulp.watch('css/oracle.css', ['nano']);
 });
 
 gulp.task('compass', function() {
   gulp.src('scss/**/*.scss')
-  //Use compass to compile the CSS.
+    //Error handling to throw Notification on error
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    //Use compass to compile the CSS.
     .pipe(compass({
       config_file: './config.rb',
       css: 'css',
@@ -35,13 +37,25 @@ gulp.task('compass', function() {
     }))
     //Concatenate all files into one CSS file.
     .pipe(concat('oracle.css'))
+});
+
+//Autoprefixes, nanofies, 
+gulp.task('nano', function () {
+  return gulp.src('css/oracle.css')
+  //Autoprefix using "CanIuse"
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('./css/'))
     //Nanofy it down into a minified version and rename.
     .pipe(cssnano())
+    //Rename to min and pipe to the proper folder.
     .pipe(rename('oracle.min.css'))
     .pipe(gulp.dest('./css/'));
 });
 
-//Lint our SCSS using rules in .scss-lint.yml.
+// Lint the SCSS using rules in .scss-lint.yml 
 gulp.task('scss-lint', function() {
   return gulp.src('scss/**/*.scss')
     .pipe( scssLint({ customReport: scssLintStylish }) );
